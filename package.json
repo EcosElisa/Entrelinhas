@@ -4,16 +4,20 @@
   "description": "Software de lista de livros para projeto da faculdade",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run docker:up && next dev",
     "build": "next build",
     "start": "next start",
     "docker:up": "docker compose -f ./infra/compose.yaml up",
-    "docker:down": "docker compose -f ./infra/compose.yaml down"
+    "docker:stop": "docker compose -f ./infra/compose.yaml stop",
+    "docker:down": "docker compose -f ./infra/compose.yaml down",
+    "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
+    "migration:up": "node-pg-migrate --migrations-dir infra/migrations up"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.2",
     "next": "^15.5.2",
     "next-connect": "^1.0.0",
     "pg": "^8.16.3",
@@ -21,6 +25,7 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "node-pg-migrate": "^8.0.3",
     "prettier": "3.6.2"
   }
 }
