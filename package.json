@@ -7,7 +7,7 @@
     "dev": "npm run docker:up && next dev",
     "build": "next build",
     "start": "next start",
-    "docker:up": "docker compose -f ./infra/compose.yaml up",
+    "docker:up": "docker compose -f ./infra/compose.yaml up -d",
     "docker:stop": "docker compose -f ./infra/compose.yaml stop",
     "docker:down": "docker compose -f ./infra/compose.yaml down",
     "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
