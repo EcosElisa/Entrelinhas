@@ -1,4 +1,4 @@
-import searchBooks from "../../../../models/search_book";
+import searchBooks from "models/search_book";
 
 export default async function getHandler(request, response) {
   const { q } = request.query;
